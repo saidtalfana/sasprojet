@@ -91,6 +91,29 @@ void swap(Tache *a, Tache *b) {
     *b = temp;
 };
 
+void ordreparldate(int a) {
+	  int i;
+	  int j;
+    for (i = 0; i < MAX - 1; i++) {
+        for (j = 0; j < MAX - i - 1; j++) {
+            int compareresult;
+            if (a) {
+                compareresult= (L[j].annee > L[j + 1].annee) ||
+                                (L[j].annee == L[j + 1].annee && L[j].mois > L[j + 1].mois) ||
+                                (L[j].annee == L[j + 1].annee && L[j].mois == L[j + 1].mois && L[j].jour > L[j + 1].jour);
+            } else {
+                compareresult= (L[j].annee < L[j + 1].annee) ||
+                                (L[j].annee == L[j + 1].annee && L[j].mois < L[j + 1].mois) ||
+                                (L[j].annee == L[j + 1].annee && L[j].mois == L[j + 1].mois && L[j].jour < L[j + 1].jour);
+            }
+
+            if (compareresult) {
+                swap(&L[j], &L[j + 1]);
+            }
+        }
+    }
+}
+
 
 int main() {
     int option;
