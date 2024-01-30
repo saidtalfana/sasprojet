@@ -44,7 +44,32 @@ void afficher_tache() {
     printf("\n");
 };
 
-void modifier_tache() {};
+void modifier_tache() {
+    int ind;
+
+    printf("Entrer l'indice de la tache  : ");
+    scanf("%d", &ind);
+
+    if (ind < 0 || ind >= MAX || L[ind].priorite == 0) {
+        printf("invalide.\n");
+        return;
+    }
+
+    printf("Nouvelle description: ");
+    scanf("%s", L[ind].description);
+
+    printf("Nouvelle priorite: ");
+    scanf(" %c", &L[ind].priorite);
+
+    printf("Nouvelle date \n");
+    printf("Nouveau jour: ");
+    scanf("%d", &L[ind].jour);
+    printf("Nouveau mois: ");
+    scanf("%d", &L[ind].mois);
+    printf("Nouvelle annee: ");
+    scanf("%d", &L[ind].annee);
+
+};
 void supprimer_tache() {};
 
 int main() {
