@@ -12,7 +12,26 @@ typedef struct {
 } Tache;
 
 
-void ajouter_tache() {};
+void ajouter_tache() {
+    static int i = 0;
+
+    printf("Entrer la description: ");
+    scanf("%99s", L[i].description);
+
+    printf("Entrer la priorite: ");
+    scanf(" %c", &L[i].priorite); 
+
+    printf("Entrer la date d'echeance \n");
+    printf("Jour: ");
+    scanf("%d", &L[i].jour);
+    printf("Mois: ");
+    scanf("%d", &L[i].mois);
+    printf("Annee: ");
+    scanf("%d", &L[i].annee);
+
+    i++;
+}
+
 void afficher_tache() {};
 void modifier_tache() {};
 void supprimer_tache() {};
