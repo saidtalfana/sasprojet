@@ -112,7 +112,16 @@ void ordreparldate(int a) {
             }
         }
     }
-}
+};
+void filter_tache(char priorit) {
+	int j;
+    printf("Affichage des taches avec priorite %c :\n", priorit);
+    printf("%-20s%-10s%-10s%-10s%-10s\n", "Description", "Priorite", "Jour", "Mois", "Annee");
+    for (j= 0; j < MAX; j++) {
+        if (L[j].priorite == priorit && L[j].priorite != 0) { 
+            printf("%-20s%-10c%-10d%-10d%-10d\n", L[j].description, L[j].priorite, L[j].jour, L[j].mois, L[j].annee);
+        }
+    };
 
 
 int main() {
