@@ -158,7 +158,26 @@ int main() {
                 supprimer_tache();
                 break;
             case 5:
+              case 5:
               
+                do {
+                    printf("Choisir l'ordre de tri :\n");
+                    printf("1: Croissant\n");
+                    printf("2: Decroissant\n");
+                    printf("Donnez votre choix: ");
+                    scanf("%d", &order);
+                    if (order != 1 && order != 2) {
+                        printf("Choix invalide\n");
+                    }
+                } while (order != 1 && order != 2);
+
+                if (order == 1) {
+                    ordreparldate(1);
+                } else {
+                    ordreparldate(0);
+                }
+
+                printf("Taches avec succes.\n");
                 break;
             case 6:
               
