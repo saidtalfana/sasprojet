@@ -79,7 +79,18 @@ void supprimer_tache() {
     if (ind < 0 || ind >= MAX || L[ind].priorite == 0) {
         printf("invalide\n");
         return;
-    };
+    }
+        memset(&L[index], 0, sizeof(Tache));
+
+    printf("Tache supprimee avec succes.\n");
+}
+
+void swap(Tache *a, Tache *b) {
+    Tache temp = *a;
+    *a = *b;
+    *b = temp;
+};
+
 
 int main() {
     int option;
