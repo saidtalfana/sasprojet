@@ -70,7 +70,16 @@ void modifier_tache() {
     scanf("%d", &L[ind].annee);
 
 };
-void supprimer_tache() {};
+void supprimer_tache() {
+    int ind;
+
+    printf("Entrer l'indice de la tache pour supprimer: ");
+    scanf("%d", &ind);
+
+    if (ind < 0 || ind >= MAX || L[ind].priorite == 0) {
+        printf("invalide\n");
+        return;
+    };
 
 int main() {
     int option;
