@@ -30,9 +30,20 @@ void ajouter_tache() {
     scanf("%d", &L[i].annee);
 
     i++;
-}
+};
 
-void afficher_tache() {};
+void afficher_tache() {
+	int j;
+    printf("Affichage des taches :\n");
+    printf("%-20s%-10s%-10s%-10s%-10s\n", "Description", "Priorite", "Jour", "Mois", "Annee");
+        for (j = 0; j < MAX; j++) {
+        if (L[j].priorite != 0) { 
+            printf("%-20s%-10c%-10d%-10d%-10d\n", L[j].description, L[j].priorite, L[j].jour, L[j].mois, L[j].annee);
+        }
+    }
+    printf("\n");
+};
+
 void modifier_tache() {};
 void supprimer_tache() {};
 
