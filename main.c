@@ -134,14 +134,14 @@ int main() {
        char filtrer_prio;
 
     do {
-        printf("***Choisir une operation***\n");
-        printf("1: Ajouter une tache\n");
-        printf("2: Afficher les taches\n");
-        printf("3: Modifier une tache\n");
-        printf("4: Supprimer une tache\n");
-        printf("5: Ordonner les taches\n");
-        printf("6: Filtrer les taches\n");
-        printf("7: Quitter\n");
+        printf("**Choisir une operation**\n같같같같같같같같같같같같�\n");
+        printf("1: Ajouter une tache    .\n=======================\n");
+        printf("2: Afficher les taches  .\n=======================\n");
+        printf("3: Modifier une tache   .\n=======================\n");
+        printf("4: Supprimer une tache  .\n=======================\n");
+        printf("5: Ordonner les taches  .\n=======================\n");
+        printf("6: Filtrer les taches   .\n=======================\n");
+        printf("7: Quitter              .\n=======================\n");
 
         do {
             printf("Donnez votre choix: ");
