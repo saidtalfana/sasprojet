@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-
 #define MAX 100
 
 typedef struct {
@@ -11,13 +10,13 @@ typedef struct {
     int annee;
 } Tache;
 
-Tache L[MAX];
- int i = 0;
+Tache L[MAX]; 
+int i = 0;
 void ajouter_tache() {
-   
+  
 
     printf("Entrer la description: ");
-    scanf("%99s", L[i].description);
+    scanf(" %[^\n]",L[i].description);
 
     printf("Entrer la priorite: ");
     scanf(" %c", &L[i].priorite); 
@@ -38,7 +37,7 @@ void afficher_tache() {
     printf("Affichage des taches :\n");
     printf("%-20s%-10s%-10s%-10s%-10s\n", "Description", "Priorite", "Jour", "Mois", "Annee");
         for (j = 0; j < MAX; j++) {
-        if (L[j].priorite != 0) { 
+        if (L[j].priorite != 0) {
             printf("%-20s%-10c%-10d%-10d%-10d\n", L[j].description, L[j].priorite, L[j].jour, L[j].mois, L[j].annee);
         }
     }
@@ -52,7 +51,7 @@ void modifier_tache() {
     scanf("%d", &index);
 
     if (index < 0 || index >= MAX || L[index].priorite == 0) {
-        printf("Indice invalide ou tache non existante.\n");
+        printf("Indice invalide .\n");
         return;
     }
 
@@ -80,50 +79,49 @@ void supprimer_tache() {
     scanf("%d", &index);
 
     if (index < 0 || index >= MAX || L[index].priorite == 0) {
-        printf("Indice invalide ou tache non existante.\n");
+        printf("invalide \n");
         return;
     }
 
     memset(&L[index], 0, sizeof(Tache));
-
-    printf("Tache supprimee avec succes.\n");
 }
 
-void swap(Tache *a, Tache *b) {
-    Tache temp = *a;
-    *a = *b;
-    *b = temp;
+void sp(Tache *a, Tache *b) {
+          Tache temp = *a;
+                     *a = *b;
+                      *b = temp;
 }
 
-void ordreparldate(int a) {
+
+void ordonner_tache(int ta) {
 	  int i;
 	  int j;
     for (i = 0; i < MAX - 1; i++) {
         for (j = 0; j < MAX - i - 1; j++) {
-            int compareresult;
-            if (a) {
-                compareresult= (L[j].annee > L[j + 1].annee) ||
+            int com_resultat;
+            if (ta) {
+                com_resultat = (L[j].annee > L[j + 1].annee) ||
                                 (L[j].annee == L[j + 1].annee && L[j].mois > L[j + 1].mois) ||
                                 (L[j].annee == L[j + 1].annee && L[j].mois == L[j + 1].mois && L[j].jour > L[j + 1].jour);
             } else {
-                compareresult= (L[j].annee < L[j + 1].annee) ||
+                com_resultat = (L[j].annee < L[j + 1].annee) ||
                                 (L[j].annee == L[j + 1].annee && L[j].mois < L[j + 1].mois) ||
                                 (L[j].annee == L[j + 1].annee && L[j].mois == L[j + 1].mois && L[j].jour < L[j + 1].jour);
             }
 
-            if (compareresult) {
-                swap(&L[j], &L[j + 1]);
+            if (com_resultat) {
+                sp(&L[j], &L[j + 1]);
             }
         }
     }
 }
 
-void filter_tache(char priority) {
+void filtrer_tache(char prio) {
 	int j;
-    printf("Affichage des taches avec priorite %c :\n", priority);
+    printf("Affichage des taches avec priorite %c :\n", prio);
     printf("%-20s%-10s%-10s%-10s%-10s\n", "Description", "Priorite", "Jour", "Mois", "Annee");
     for (j= 0; j < MAX; j++) {
-        if (L[j].priorite == priority && L[j].priorite != 0) { 
+        if (L[j].priorite == prio && L[j].priorite != 0) {
             printf("%-20s%-10c%-10d%-10d%-10d\n", L[j].description, L[j].priorite, L[j].jour, L[j].mois, L[j].annee);
         }
     }
@@ -133,7 +131,7 @@ void filter_tache(char priority) {
 int main() {
     int option;
        int order;
-       char filterPriority;
+       char filtrer_prio;
 
     do {
         printf("***Choisir une operation***\n");
@@ -179,18 +177,17 @@ int main() {
                 } while (order != 1 && order != 2);
 
                 if (order == 1) {
-                    bubble_sort_by_date(1);
+                    ordonner_tache(1);
                 } else {
-                    bubble_sort_by_date(0);
+                    ordonner_tache(0);
                 }
 
-                printf("Taches triees avec succes.\n");
                 break;
                  case 6:
               
                 printf("Entrer la priorite pour filtrer les taches : ");
-                scanf(" %c", &filterPriority);
-                filter_tache_by_priority(filterPriority);
+                scanf(" %c", &filtrer_prio);
+                filtrer_tache(filtrer_prio);
                 break;
         
         }
